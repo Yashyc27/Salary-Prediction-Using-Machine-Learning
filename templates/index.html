@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="fade-in">💼 Salary Prediction</h2>
+        <form method="POST" action="/predict" class="slide-up">
+            <label>Age:</label>
+            <input type="number" name="Age" required>
+
+            <label>Gender:</label>
+            <select name="Gender" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+                <option value="2">Other</option>
+            </select>
+
+            <label>Education Level:</label>
+            <select name="Education Level" required>
+                <option value="0">High School</option>
+                <option value="1">Bachelor's</option>
+                <option value="2">Master's</option>
+                <option value="3">PhD</option>
+            </select>
+
+            <label>Job Category Code:</label>
+            <select name="Job Category Code" required>
+                <option value="0">Others</option>
+                <option value="1">Technical</option>
+                <option value="2">Non-Technical</option>
+                <option value="3">Executive</option>
+            </select>
+
+            <label>Years of Experience:</label>
+            <input type="number" step="0.1" name="Years of Experience" required>
+
+            <button type="submit">Predict Salary</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result fade-in-delayed">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
