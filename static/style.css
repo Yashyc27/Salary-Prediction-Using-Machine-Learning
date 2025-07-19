@@ -1,93 +1,55 @@
+/* Custom styles for animations and font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    background-color: white;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    animation: fadeIn 1s ease-in-out;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #444;
-}
-
-input, select {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-button {
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #007BFF;
-    border: none;
-    color: white;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-    cursor: pointer;
-}
-
-.result {
-    text-align: center;
-    margin-top: 20px;
-    color: #28a745;
-    font-size: 18px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+    font-family: 'Inter', sans-serif;
 }
 
 .fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-.fade-in-delayed {
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1s ease-out forwards;
 }
 
 .slide-up {
-    animation: slideUp 1s ease-out;
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0; /* Start hidden for animation */
+}
+
+.fade-in-delayed {
+    animation: fadeIn 1s ease-out 0.5s forwards; /* Delay for result */
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Custom button styling for a more appealing look */
+.predict-button {
+    background-image: linear-gradient(to right, #6a0572 0%, #a40606  51%, #6a0572  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.predict-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
